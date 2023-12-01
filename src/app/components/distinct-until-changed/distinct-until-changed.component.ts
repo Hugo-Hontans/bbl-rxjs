@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
 import { BehaviorSubject, Observable, distinctUntilChanged, filter, interval, take, tap } from 'rxjs';
 import { AbstractComponent } from '../abstract.component';
 
@@ -11,7 +11,7 @@ interface Dog {
 @Component({
   selector: 'app-distinct-until-changed',
   standalone: true,
-  imports: [CommonModule],
+  imports: [AsyncPipe, JsonPipe],
   templateUrl: './distinct-until-changed.component.html',
   styleUrls: ['./distinct-until-changed.component.scss']
 })

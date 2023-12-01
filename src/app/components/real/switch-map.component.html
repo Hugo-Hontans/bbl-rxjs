@@ -1,0 +1,4 @@
+<mat-form-field>
+    <input matInput placeholder="Dog name" [formControl]="dogControl">
+</mat-form-field>
+<p *ngIf="filteredDogs$ | async as filtredDogs">{{ filtredDogs | json }}</p>

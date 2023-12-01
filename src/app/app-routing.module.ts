@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'distinct-until-changed',
     loadComponent: () => import('./components/distinct-until-changed/distinct-until-changed.component').then((c) => c.DistinctUntilChangedComponent)
+  },
+  {
+    path: 'switch-map',
+    loadComponent: () => import('./components/real/switch-map.component').then((c) => c.SwitchMapComponent)
   }
 ];
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { AbstractComponent } from '../abstract.component';
 import { FakeObservableService } from 'src/app/services/fake-observable.service';
 import { Observable, interval, map, takeUntil, withLatestFrom } from 'rxjs';
@@ -7,7 +7,7 @@ import { Observable, interval, map, takeUntil, withLatestFrom } from 'rxjs';
 @Component({
   selector: 'app-with-latest-from',
   standalone: true,
-  imports: [CommonModule],
+  imports: [AsyncPipe],
   templateUrl: './with-latest-from.component.html',
   styleUrls: ['./with-latest-from.component.scss'],
   providers: [FakeObservableService]

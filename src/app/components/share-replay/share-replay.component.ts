@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { FakeObservableService } from 'src/app/services/fake-observable.service';
 import { Observable, shareReplay, takeUntil, tap } from 'rxjs';
 import { AbstractComponent } from '../abstract.component';
@@ -7,7 +7,7 @@ import { AbstractComponent } from '../abstract.component';
 @Component({
   selector: 'app-share-replay',
   standalone: true,
-  imports: [CommonModule],
+  imports: [AsyncPipe],
   templateUrl: './share-replay.component.html',
   styleUrls: ['./share-replay.component.scss'],
   providers: [FakeObservableService]
