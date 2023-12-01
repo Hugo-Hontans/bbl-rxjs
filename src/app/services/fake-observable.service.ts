@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, interval } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FakeObservableService {
 
   constructor() { }

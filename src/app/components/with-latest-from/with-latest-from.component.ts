@@ -9,7 +9,8 @@ import { Observable, interval, map, takeUntil, withLatestFrom } from 'rxjs';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './with-latest-from.component.html',
-  styleUrls: ['./with-latest-from.component.scss']
+  styleUrls: ['./with-latest-from.component.scss'],
+  providers: [FakeObservableService]
 })
 export class WithLatestFromComponent extends AbstractComponent implements OnInit {
 

@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'from-event',
     loadComponent: () => import('./components/from-event/from-event.component').then((c) => c.FromEventComponent)
+  },
+  {
+    path: 'distinct-until-changed',
+    loadComponent: () => import('./components/distinct-until-changed/distinct-until-changed.component').then((c) => c.DistinctUntilChangedComponent)
   }
 ];
 

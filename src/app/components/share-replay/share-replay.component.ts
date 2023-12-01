@@ -9,7 +9,8 @@ import { AbstractComponent } from '../abstract.component';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './share-replay.component.html',
-  styleUrls: ['./share-replay.component.scss']
+  styleUrls: ['./share-replay.component.scss'],
+  providers: [FakeObservableService]
 })
 export class ShareReplayComponent extends AbstractComponent implements OnInit {
 
