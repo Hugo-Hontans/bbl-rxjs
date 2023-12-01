@@ -21,7 +21,7 @@ export class ShareReplayComponent extends AbstractComponent implements OnInit {
   interval2$: Observable<number> = this.fakeObsService.getInterval$().pipe(
     tap(() => console.log('interval 2')),
     takeUntil(this.destroy$),
-    shareReplay()
+    shareReplay(1)
   );
 
   constructor(private fakeObsService: FakeObservableService) {

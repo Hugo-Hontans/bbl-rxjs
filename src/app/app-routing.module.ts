@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'with-latest-from',
     loadComponent: () => import('./components/with-latest-from/with-latest-from.component').then((c) => c.WithLatestFromComponent)
+  },
+  {
+    path: 'from-event',
+    loadComponent: () => import('./components/from-event/from-event.component').then((c) => c.FromEventComponent)
   }
 ];
 
