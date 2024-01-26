@@ -19,7 +19,7 @@ export class SwitchMapComponent extends AbstractComponent implements OnInit {
 
   dogControl = new FormControl<string>('');
 
-  filteredDogs$: Observable<Dog[]> | undefined;
+  filteredDogs$: Observable<Dog[]>;
 
   constructor(private apiServie: ApiService) {
     super();

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
+import { AsyncPipe, JsonPipe } from '@angular/common';
 import { BehaviorSubject, Observable, distinctUntilChanged, filter, interval, take, tap } from 'rxjs';
 import { AbstractComponent } from '../abstract.component';
 
@@ -17,7 +17,7 @@ interface Dog {
 })
 export class DistinctUntilChangedComponent extends AbstractComponent implements OnInit {
 
-  colorDogChanged$: Observable<Dog> | undefined;
+  colorDogChanged$: Observable<Dog>;
 
   private _selectedDog$: BehaviorSubject<Dog> = new BehaviorSubject({ name: 'Toutou', color: 'beige' });
 

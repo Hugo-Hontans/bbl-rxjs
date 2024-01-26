@@ -6,6 +6,16 @@ export interface Dog {
   color: string;
 }
 
+export interface User {
+  movieIds: number[];
+}
+
+
+export interface Movie {
+  id: number;
+  name: string;
+}
+
 @Injectable()
 export class ApiService {
 

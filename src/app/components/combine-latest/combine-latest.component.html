@@ -1,0 +1,9 @@
+<mat-form-field>
+    <input (keyup.enter)="addUserFavoriteMovie()" matInput type="number" placeholder="Add movie favorite" [formControl]="userFavoriteMovieControl">
+</mat-form-field>
+<mat-form-field class="movie-input">
+    <input (keyup.enter)="addMovie()" matInput placeholder="Movie name" [formControl]="movieControl">
+</mat-form-field>
+
+<p>My favorites</p>
+<p>{{ userMovies$ | async | json }}</p>

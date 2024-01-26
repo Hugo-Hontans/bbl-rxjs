@@ -20,8 +20,12 @@ const routes: Routes = [
   },
   {
     path: 'switch-map',
-    loadComponent: () => import('./components/real/switch-map.component').then((c) => c.SwitchMapComponent)
-  }
+    loadComponent: () => import('./components/switch-map/switch-map.component').then((c) => c.SwitchMapComponent)
+  },
+  {
+    path: 'combine-latest',
+    loadComponent: () => import('./components/combine-latest/combine-latest.component').then((c) => c.CombineLatestComponent)
+  },
 ];
 
 @NgModule({
