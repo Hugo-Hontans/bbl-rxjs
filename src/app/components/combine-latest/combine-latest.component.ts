@@ -15,9 +15,9 @@ import { Movie, User } from 'src/app/services/api.service';
 })
 export class CombineLatestComponent implements OnInit {
 
-  user$: BehaviorSubject<User> = new BehaviorSubject({ movieIds: [2, 3] });
+  private _user$: BehaviorSubject<User> = new BehaviorSubject({ movieIds: [2, 3] });
 
-  movies$: BehaviorSubject<Movie[]> = new BehaviorSubject([
+  private _movies$: BehaviorSubject<Movie[]> = new BehaviorSubject([
     { id: 1, name: 'Lyon' },
     { id: 2, name: 'Rome' },
     { id: 3, name: 'Paris' },
@@ -33,18 +33,18 @@ export class CombineLatestComponent implements OnInit {
   userMovies$: Observable<Movie[]>;
 
   ngOnInit(): void {
-    this.userMovies$ = combineLatest([this.user$, this.movies$]).pipe(
+    this.userMovies$ = combineLatest([this._user$, this._movies$]).pipe(
       map(([user, allMovies]) => allMovies.filter(movie => user.movieIds.includes(movie.id)))
     )
   }
 
   addUserFavoriteMovie(): void {
-    this.user$.next({ movieIds: [...this.user$.value.movieIds, this.userFavoriteMovieControl.value] });
+    this._user$.next({ movieIds: [...this._user$.value.movieIds, this.userFavoriteMovieControl.value] });
     this.userFavoriteMovieControl.reset();
   }
 
   addMovie(): void {
-    this.movies$.next([...this.movies$.value, { id: this.movies$.value.length + 1, name: this.movieControl.value }]);
+    this._movies$.next([...this._movies$.value, { id: this._movies$.value.length + 1, name: this.movieControl.value }]);
     this.movieControl.reset();
   }
 }
