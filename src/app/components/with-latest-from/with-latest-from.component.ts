@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { AbstractComponent } from '../abstract.component';
 import { FakeObservableService } from 'src/app/services/fake-observable.service';
-import { Observable, interval, map, takeUntil, withLatestFrom } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, interval, map, takeUntil, tap, withLatestFrom } from 'rxjs';
 
 @Component({
   selector: 'app-with-latest-from',
@@ -14,11 +14,15 @@ import { Observable, interval, map, takeUntil, withLatestFrom } from 'rxjs';
 })
 export class WithLatestFromComponent extends AbstractComponent implements OnInit {
 
-  private _interval1$: Observable<number> = this.fakeObsService.getInterval$();
+  private _interval1$: Observable<number> = this.fakeObsService.getInterval$(); // 3000
 
   private _interval2$: Observable<number> = interval(1000);
 
-  interval3$: Observable<string> | undefined;
+  interval3$: Observable<string>;
+
+  private intervalBehaviorSubject = new BehaviorSubject<number>(0);
+
+  private intervalSubject = new Subject<number>();
 
   constructor(private fakeObsService: FakeObservableService) {
     super();
@@ -32,5 +36,23 @@ export class WithLatestFromComponent extends AbstractComponent implements OnInit
       }),
       takeUntil(this.destroy$)
     );
+
+
+    this.intervalBehaviorSubject
+    .pipe(
+      tap((value) => console.log('behavior', value)),
+      takeUntil(this.destroy$)
+    )
+    .subscribe();
+
+    this.intervalSubject
+    .pipe(
+      tap((value) => console.log('subject', value)),
+      takeUntil(this.destroy$)
+    )
+    .subscribe();
+
+    this.intervalSubject.next(1);
+    this.intervalBehaviorSubject.next(1);
   }
 }
